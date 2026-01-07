@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestione Prenotazioni - Studio XYZ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <img src="assets/icon.png" alt="Icon" style="width:50px">
+  <h1>Gestione Prenotazioni</h1>
+</header>
+
+<main>
+  <label for="datePickerAdmin">Seleziona la data:</label>
+  <input type="date" id="datePickerAdmin" min="2025-12-01" max="2025-12-31">
+
+  <h2>Prenotazioni Effettuate</h2>
+  <div id="reservationsContainer" style="display:none"></div>
+
+  <h2>Aggiungi prenotazione manuale</h2>
+  <div id="manualForm" style="display:none">
+    <input type="text" id="manualName" placeholder="Nome">
+    <input type="text" id="manualContact" placeholder="Email o cellulare">
+    <select id="manualSlotSelect"></select>
+    <button onclick="manualBooking()">Aggiungi Prenotazione</button>
+  </div>
+</main>
+
+
+<script src="admin.js"></script>
+</body>
+</html>
+

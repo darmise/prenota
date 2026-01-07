@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prenotazioni - Studio XYZ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <!-- Logo di test pubblico -->
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png"
+      alt="Logo Studio"
+    >
+    <h1 id="businessName"> </h1>
+  </header>
+
+  <main>
+    <label for="datePicker">Seleziona la data</label>
+    <input type="date" id="datePicker">
+
+    <div id="slotsContainer"></div>
+
+    <div id="bookingForm" style="display:none">
+      <input type="text" id="name" placeholder="Nome">
+      <input type="text" id="contact" placeholder="Email o cellulare">
+      <button onclick="submitBooking()">Conferma Prenotazione</button>
+    </div>
+  </main>
+
+  <script src="user.js"></script>
+</body>
+</html>
+
+
+
+
