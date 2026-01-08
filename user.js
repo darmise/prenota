@@ -16,27 +16,28 @@ document.getElementById("datePicker").addEventListener("change", (e) => {
 
 // Carica solo slot liberi dal backend
 function loadSlots(date) {
-  fetch(`backend.py?action=get_slots&date=${date}`)
-    .then(res => res.json())
-    .then(slots => {
-      const container = document.getElementById("slotsContainer");
-      container.innerHTML = '';
-      if (slots.length === 0) {
-        container.textContent = "Nessuno slot disponibile per questa data";
-        document.getElementById("bookingForm").style.display = "none";
-        return;
+  fetch("https://api.github.com/repos/darmise/prenotaprivate/actions/workflows/booking.yml/dispatches", {
+    method: "POST",
+    headers: {
+      "Accept": "application/vnd.github+json"
+    },
+    body: JSON.stringify({
+      ref: "main",
+      inputs: {
+        action: "get_slots",
+        payload: JSON.stringify({ date })
       }
-      slots.forEach(slot => {
-        const btn = document.createElement("button");
-        btn.textContent = slot;
-        btn.onclick = () => {
-          selectedSlot = slot;
-          document.getElementById("bookingForm").style.display = "block";
-        };
-        container.appendChild(btn);
-      });
-      document.getElementById("bookingForm").style.display = "none";
-    });
+    })
+  })
+  .then(res => {
+    if (!res.ok) throw new Error("Errore backend");
+    return res.json(); // ⚠️ qui NON arriva JSON diretto
+  })
+  .then(() => {
+    console.warn("GitHub Actions non restituisce risposta diretta");
+  });
+}
+
 }
 
 function submitBooking() {
