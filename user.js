@@ -4,6 +4,7 @@ const CONFIG = {
   bookingPeriod: { startDate: "2026-01-01", endDate: "2026-01-30" }
 };
 
+document.getElementById("title").textContent = CONFIG.businessName;
 document.getElementById("businessName").textContent = CONFIG.businessName;
 
 let selectedDate = null;
