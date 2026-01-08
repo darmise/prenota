@@ -39,7 +39,6 @@ function loadSlots(date) {
   });
 }
 
-}
 
 function submitBooking() {
   const name = document.getElementById("name").value.trim();
